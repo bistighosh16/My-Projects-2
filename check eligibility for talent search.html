@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent Search Competition Eligibility</title>
+</head>
+<body>
+    <h1>Talent Search Competition Eligibility Checker</h1>
+    <label for="name">Enter Name:</label>
+    <input type="text" id="name" placeholder="Your Name">
+
+    <label for="age">Enter Age:</label>
+    <input type="number" id="age" placeholder="Your Age" min="0">
+
+    <label for="class">Enter Class:</label>
+    <input type="number" id="class" placeholder="Class Completed" min="1">
+
+    <button id="checkEligibility">Check Eligibility</button>
+    
+    <p id="result"></p>
+
+    <script>document.getElementById('checkEligibility').addEventListener('click', function() {
+        
+        const name = document.getElementById('name').value.trim();
+        const age = parseInt(document.getElementById('age').value);
+        const classCompleted = parseInt(document.getElementById('class').value);
+        const resultElement = document.getElementById('result');
+    
+        
+        resultElement.textContent = '';
+    
+        
+        if (age >= 15 || classCompleted > 8) {
+            resultElement.textContent = `${name}, you are eligible to take part in the Talent Search Competition!`;
+        } else {
+            resultElement.textContent = `${name}, you are not eligible to take part in the Talent Search Competition.`;
+        }
+    });
+    </script>
+</body>
+</html>

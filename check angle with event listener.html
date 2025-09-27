@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Type Checker</title>
+</head>
+<body>
+    <h1>Angle Type Checker</h1>
+    <label for="angle">Enter Angle (in degrees):</label>
+    <input type="number" id="angle" placeholder="Angle in degrees" min="0">
+
+    <button id="checkAngle">Check Angle Type</button>
+    
+    <p id="result"></p>
+
+    <script>document.getElementById('checkAngle').addEventListener('click', function() {
+        
+        const angle = parseFloat(document.getElementById('angle').value);
+        const resultElement = document.getElementById('result');
+    
+
+        resultElement.textContent = '';
+    
+        
+        if (angle <= 0 || angle >= 360) {
+            resultElement.textContent = 'Please enter a valid angle between 0 and 360 degrees.';
+            return;
+        }
+    
+        
+        let angleType;
+        if (angle < 90) {
+            angleType = 'Acute angle';
+        } else if (angle === 90) {
+            angleType = 'Right angle';
+        } else if (angle > 90 && angle < 180) {
+            angleType = 'Obtuse angle';
+        } else if (angle === 180) {
+            angleType = 'Straight angle';
+        } else {
+            angleType = 'Reflex angle';
+        }
+    
+        
+        resultElement.textContent = `The angle is: ${angleType}`;
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Eligibility</title>
+</head>
+<body>
+    <h1>Candidate Eligibility Checker</h1>
+    <label for="background">Subject Background (SCIENCE/OTHER):</label>
+    <input type="text" id="background" placeholder="Enter your background">
+    
+    <label for="percentage">Percentage:</label>
+    <input type="number" id="percentage" placeholder="Enter your percentage" min="0" max="100">
+    
+    <button id="checkEligibility">Check Eligibility</button>
+    
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('checkEligibility').addEventListener('click', function() {
+    const background = document.getElementById('background').value.trim().toUpperCase();
+    const percentage = parseFloat(document.getElementById('percentage').value);
+    const messageElement = document.getElementById('message');
+
+    
+    messageElement.textContent = '';
+
+    
+    if (background === 'SCIENCE' || percentage >= 75) {
+        messageElement.textContent = 'Congratulations! You are eligible for the examination.';
+    } else {
+        messageElement.textContent = 'Sorry, you are not eligible for the examination.';
+    }
+});
+
+    </script>
+</body>
+</html>

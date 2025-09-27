@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Display</title>
+</head>
+<body>
+    <h1>Display Series</h1>
+    <button id="displaySeries">Show Series</button>
+    
+    <p id="result"></p>
+
+    <script>document.getElementById('displaySeries').addEventListener('click', function() {
+        const resultElement = document.getElementById('result');
+        let series = '';
+    
+        
+        for (let i = 1; i <= 10; i++) {
+            const denominator = Math.pow(10, i);
+            series += `${i}/${denominator}`;
+            if (i < 10) {
+                series += ', '; 
+            }
+        }
+    
+        
+        resultElement.textContent = `Series: ${series}`;
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Bill Calculator</title>
+</head>
+<body>
+    <h1>Electric Bill Calculator</h1>
+    <label for="units">Enter Number of Units Consumed:</label>
+    <input type="number" id="units" placeholder="Units" min="0" required>
+
+    <button id="calculateBill">Calculate Bill</button>
+    
+    <p id="result"></p>
+
+    <script>document.getElementById('calculateBill').addEventListener('click', function() {
+        
+        const units = parseInt(document.getElementById('units').value);
+        const resultElement = document.getElementById('result');
+    
+        
+        resultElement.textContent = '';
+    
+        
+        if (isNaN(units) || units < 0) {
+            resultElement.textContent = 'Please enter a valid number of units.';
+            return;
+        }
+    
+    
+        let rate;
+        if (units <= 100) {
+            rate = 5;
+        } else if (units > 100 && units <= 200) {
+            rate = 6;
+        } else {
+            rate = 7;
+        }
+    
+        
+        const meterRent = 50;
+        const totalBill = (units * rate) + meterRent;
+    
+        
+        resultElement.textContent = `Total Electric Bill: Rs ${totalBill.toFixed(2)} (including meter rent of Rs ${meterRent})`;
+    });
+    </script>
+</body>
+</html>

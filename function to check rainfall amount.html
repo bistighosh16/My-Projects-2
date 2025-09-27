@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+function checkRainfall() {
+    
+    let rainfall = parseFloat(prompt("Enter the rainfall amount (in cm):"));
+
+    
+    let message;
+    if (rainfall < 10) {
+        message = "Very less";
+    } else if (rainfall >= 10 && rainfall < 20) {
+        message = "Normal";
+    } else {
+        message = "Heavy";
+    }
+
+    
+    alert("Rainfall amount: " + rainfall + " cm - Message: " + message);
+}
+
+
+checkRainfall();
+
+    </script>
+</body>
+</html>

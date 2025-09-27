@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Type Checker</title>
+</head>
+<body>
+    <h1>Triangle Type Checker</h1>
+    <label for="side1">Enter Side 1:</label>
+    <input type="number" id="side1" placeholder="Length of Side 1" min="0">
+
+    <label for="side2">Enter Side 2:</label>
+    <input type="number" id="side2" placeholder="Length of Side 2" min="0">
+
+    <label for="side3">Enter Side 3:</label>
+    <input type="number" id="side3" placeholder="Length of Side 3" min="0">
+
+    <button id="checkTriangle">Check Triangle Type</button>
+    
+    <p id="result"></p>
+
+    <script src="script.js">document.getElementById('checkTriangle').addEventListener('click', function() {
+    
+        const side1 = parseFloat(document.getElementById('side1').value);
+        const side2 = parseFloat(document.getElementById('side2').value);
+        const side3 = parseFloat(document.getElementById('side3').value);
+        const resultElement = document.getElementById('result');
+    
+    
+        resultElement.textContent = '';
+    
+        
+        if (side1 <= 0 || side2 <= 0 || side3 <= 0) {
+            resultElement.textContent = 'Please enter valid lengths for all sides.';
+            return;
+        }
+    
+        
+        let triangleType;
+        if (side1 === side2 && side2 === side3) {
+            triangleType = 'Equilateral triangle';
+        } else if (side1 === side2 || side2 === side3 || side1 === side3) {
+            triangleType = 'Isosceles triangle';
+        } else {
+            triangleType = 'Scalene triangle';
+        }
+    
+        
+        resultElement.textContent = `The triangle is: ${triangleType}`;
+    });
+    </script>
+</body>
+</html>

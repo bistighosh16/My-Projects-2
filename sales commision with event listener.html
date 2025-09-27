@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Commission Calculator</title>
+</head>
+<body>
+    <h1>Weekly Sales Commission Calculator</h1>
+    <label for="sales">Enter Weekly Sales (Rs):</label>
+    <input type="number" id="sales" placeholder="Sales amount in Rs" min="0">
+    
+    <button id="calculateCommission">Calculate Commission</button>
+    
+    <p id="result"></p>
+
+    <script src=>document.getElementById('calculateCommission').addEventListener('click', function() {
+        
+        const salesAmount = parseFloat(document.getElementById('sales').value);
+        const resultElement = document.getElementById('result');
+    
+        
+        resultElement.textContent = '';
+    
+        
+        let commissionPercentage;
+    
+        if (salesAmount < 5000) {
+            commissionPercentage = 5;
+        } else if (salesAmount >= 5000 && salesAmount < 20000) {
+            commissionPercentage = 10;
+        } else if (salesAmount >= 20000) {
+            commissionPercentage = 15;
+        } else {
+            resultElement.textContent = 'Invalid input';
+            return;
+        }
+    
+        
+        const commission = (commissionPercentage / 100) * salesAmount;
+    
+        
+        resultElement.textContent = `Commission: Rs ${commission.toFixed(2)} (${commissionPercentage}%)`;
+    });
+    </script>
+</body>
+</html>

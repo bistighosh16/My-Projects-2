@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+function checkEligibility() {
+    
+    let name = prompt("Enter your name:");
+    let age = parseInt(prompt("Enter your age:"));
+    let classLevel = parseInt(prompt("Enter your class:"));
+
+    
+    if (age >= 15 || classLevel > 8) {
+        alert(name + ", YOU CAN TAKE PART in the competition.");
+    } else {
+        alert(name + ", YOU CAN NOT TAKE PART in the competition.");
+    }
+}
+
+
+checkEligibility();
+
+
+    </script>
+</body>
+</html>

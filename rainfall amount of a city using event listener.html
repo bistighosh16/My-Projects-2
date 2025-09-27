@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Amount Checker</title>
+</head>
+<body>
+    <h1>Rainfall Amount Checker</h1>
+    <label for="rainfall">Enter Rainfall Amount (cm):</label>
+    <input type="number" id="rainfall" placeholder="Rainfall amount in cm" min="0">
+    
+    <button id="checkRainfall">Check Rainfall</button>
+    
+    <p id="message"></p>
+
+    <script>document.getElementById('checkRainfall').addEventListener('click', function() {
+        
+        const rainfallAmount = parseFloat(document.getElementById('rainfall').value);
+        const messageElement = document.getElementById('message');
+    
+        
+        messageElement.textContent = '';
+    
+        
+        let message;
+        if (rainfallAmount < 10) {
+            message = 'Very less';
+        } else if (rainfallAmount >= 10 && rainfallAmount < 20) {
+            message = 'Normal';
+        } else if (rainfallAmount >= 20) {
+            message = 'Heavy';
+        } else {
+            message = 'Invalid input';
+        }
+    
+        
+        messageElement.textContent = message;
+    });
+    </script>
+</body>
+</html>

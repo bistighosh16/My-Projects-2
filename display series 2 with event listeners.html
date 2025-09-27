@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Display</title>
+</head>
+<body>
+    <h1>Display Series</h1>
+    <button id="displaySeries">Show Series</button>
+    
+    <p id="result"></p>
+
+    <script>document.getElementById('displaySeries').addEventListener('click', function() {
+        const resultElement = document.getElementById('result');
+        
+        
+        const series = [25, 16, 9, 4, 1, 0, 1, 4, 9, 16, 25];
+        
+        
+        const seriesString = series.join(', ');
+    
+        
+        resultElement.textContent = `Series: ${seriesString}`;
+    });
+    </script>
+</body>
+</html>

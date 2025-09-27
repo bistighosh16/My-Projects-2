@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Premium Calculator</title>
+</head>
+<body>
+    <h1>Insurance Premium Calculator</h1>
+    <label for="name">Enter Name:</label>
+    <input type="text" id="name" placeholder="Your Name" required>
+
+    <label for="age">Enter Age:</label>
+    <input type="number" id="age" placeholder="Your Age" min="0" required>
+
+    <label for="salary">Enter Salary (Rs):</label>
+    <input type="number" id="salary" placeholder="Salary in Rs" min="0" required>
+
+    <button id="calculatePremium">Calculate Premium</button>
+    
+    <p id="result"></p>
+
+    <script>document.getElementById('calculatePremium').addEventListener('click', function() {
+        
+        const name = document.getElementById('name').value.trim();
+        const age = parseInt(document.getElementById('age').value);
+        const salary = parseFloat(document.getElementById('salary').value);
+        const resultElement = document.getElementById('result');
+    
+    
+        resultElement.textContent = '';
+    
+        
+        if (!name || age <= 0 || salary <= 0) {
+            resultElement.textContent = 'Please enter valid name, age, and salary.';
+            return;
+        }
+    
+        
+        let premiumPercentage;
+        if (age >= 20 && age <= 35) {
+            premiumPercentage = 8;
+        } else if (age >= 36 && age <= 50) {
+            premiumPercentage = 10;
+        } else if (age > 50) {
+            premiumPercentage = 14;
+        } else {
+            resultElement.textContent = 'Age must be 20 or above.';
+            return;
+        }
+    
+    
+        const premium = (premiumPercentage / 100) * salary;
+    
+        
+        resultElement.textContent = `${name}, your insurance premium is: Rs ${premium.toFixed(2)} (${premiumPercentage}% of your salary)`;
+    });
+    </script>
+</body>
+</html>

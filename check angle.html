@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+function checkAngle() {
+    
+    let angle = parseFloat(prompt("Enter an angle (in degrees):"));
+
+    
+    if (angle > 0 && angle < 90) {
+        alert("The angle is an acute angle.");
+    } else if (angle === 90) {
+        alert("The angle is a right angle.");
+    } else if (angle > 90 && angle < 180) {
+        alert("The angle is an obtuse angle.");
+    } else if (angle === 180) {
+        alert("The angle is a straight angle.");
+    } else {
+        alert("Invalid angle. Please enter an angle between 0 and 180 degrees.");
+    }
+}
+
+
+checkAngle();
+
+    </script>
+</body>
+</html>

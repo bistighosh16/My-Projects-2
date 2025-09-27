@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Angled Triangle Checker</title>
+</head>
+<body>
+    <h1>Right Angled Triangle Checker</h1>
+    <label for="angle1">Enter Angle 1 (degrees):</label>
+    <input type="number" id="angle1" placeholder="Angle 1" min="0">
+
+    <label for="angle2">Enter Angle 2 (degrees):</label>
+    <input type="number" id="angle2" placeholder="Angle 2" min="0">
+
+    <label for="angle3">Enter Angle 3 (degrees):</label>
+    <input type="number" id="angle3" placeholder="Angle 3" min="0">
+
+    <button id="checkTriangle">Check Right Angled Triangle</button>
+    
+    <p id="result"></p>
+
+    <script>document.getElementById('checkTriangle').addEventListener('click', function() {
+        
+        const angle1 = parseFloat(document.getElementById('angle1').value);
+        const angle2 = parseFloat(document.getElementById('angle2').value);
+        const angle3 = parseFloat(document.getElementById('angle3').value);
+        const resultElement = document.getElementById('result');
+    
+        
+        resultElement.textContent = '';
+    
+
+        if (angle1 <= 0 || angle2 <= 0 || angle3 <= 0) {
+            resultElement.textContent = 'Please enter valid angles greater than 0.';
+            return;
+        }
+    
+
+        const sum = angle1 + angle2 + angle3;
+        if (sum !== 180) {
+            resultElement.textContent = 'The angles do not form a triangle.';
+            return;
+        }
+    
+        
+        if (angle1 === 90 || angle2 === 90 || angle3 === 90) {
+            resultElement.textContent = 'The triangle is a right-angled triangle.';
+        } else {
+            resultElement.textContent = 'The triangle is not a right-angled triangle.';
+        }
+    });
+    </script>
+</body>
+</html>
